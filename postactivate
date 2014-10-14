@@ -1,0 +1,16 @@
+#!/bin/bash
+# This hook is run after every virtualenv is activated.
+VIRTUAL_ENV_SRC=""
+for i in $( cat $VIRTUAL_ENV/local/lib/python2.7/site-packages/_virtualenv_path_extensions.pth | grep /home/ ); do
+            VIRTUAL_ENV_SRC="$VIRTUAL_ENV_SRC $i"
+        done
+        VIRTUAL_ENV_SRC="$VIRTUAL_ENV_SRC $VIRTUAL_ENV_SRC/local/lib/python2.7/site-packages/"
+        echo Processing ctags for following pathes
+        echo $VIRTUAL_ENV_SRC
+        ctags -f $VIRTUAL_ENV/tags -R $VIRTUAL_ENV_SRC &> /dev/null & disown
+        echo Finished processing ctags
+        #echo Processing utags
+        #echo IMPORTANT: Make sure you are at the root folder of the project
+        #utags -g -n . > $VIRTUAL_ENV/utags
+        #cp $VIRTUAL_ENV/utags .
+        #echo Finished processing utags
