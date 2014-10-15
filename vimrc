@@ -40,9 +40,11 @@ let g:syntastic_enable_signs=1
 
 "YouCompleteMe
 " 
+
 let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_auto_trigger = 1
 let g:ycm_key_list_select_completion = ['<Tab>', '<Down>']
+nnoremap <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "Indentation
 "
@@ -80,6 +82,7 @@ set shiftwidth=4        		" number of spaces to use for auto indent
 set autoindent          		" copy indent from current line when starting a new line
 set ruler               		" show line and column number
 set number
+set t_Co=256
 
 " ===================KEY MAPPING========================
 "
