@@ -22,7 +22,9 @@ Plugin 'Lokaltog/vim-easymotion'
 "
 call vundle#end()            
 filetype plugin indent on    
-
+"Leader key
+"
+let mapleader= "4"
 " NERDTree
 "
 let g:nerdtree_tabs_open_on_gui_startup=1
@@ -44,7 +46,7 @@ let g:syntastic_enable_signs=1
 let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_auto_trigger = 1
 let g:ycm_key_list_select_completion = ['<Tab>', '<Down>']
-nnoremap <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "Indentation
 "
@@ -96,7 +98,12 @@ map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
-
+map <leader>h :wincmd h<CR>
+map <leader>j :wincmd j<CR>
+map <leader>k :wincmd k<CR>
+map <leader>l :wincmd l<CR>
+noremap <silent> <Leader>w :w<CR>
+noremap <silent> <Leader>q :q!<CR>
 " ==================FUNCTIONS============================
 "
 " Add the virtualenv's site-packages to vim path
