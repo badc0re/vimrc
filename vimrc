@@ -88,7 +88,9 @@ set t_Co=256
 
 " ===================KEY MAPPING========================
 "
-nnoremap <C-n> :NERDTreeToggle<CR>
+set clipboard=unnamedplus
+set noswapfile
+nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <F3> :set number<CR>
 nnoremap <F4> :set nonumber<CR>
 :imap jj <Esc>
@@ -103,7 +105,8 @@ map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR>
 noremap <silent> <Leader>w :w<CR>
-noremap <silent> <Leader>q :q!<CR>
+noremap <silent> <Leader>q :q<CR>
+nnoremap <Leader><F3> :set hlsearch!<CR>
 " ==================FUNCTIONS============================
 "
 " Add the virtualenv's site-packages to vim path
