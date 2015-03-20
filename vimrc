@@ -19,6 +19,8 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'sjl/badwolf'
 Plugin 'kien/ctrlp.vim' 
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'elzr/vim-json'
+"Plugin 'Yggdroot/indentLine'
 "
 call vundle#end()            
 filetype plugin indent on    
@@ -46,7 +48,7 @@ let g:syntastic_enable_signs=1
 let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_auto_trigger = 1
 let g:ycm_key_list_select_completion = ['<Tab>', '<Down>']
-nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "Indentation
 "
@@ -85,7 +87,7 @@ set autoindent          		" copy indent from current line when starting a new li
 set ruler               		" show line and column number
 set number
 set t_Co=256
-
+map <leader>g <C-]> " goto definition
 " ===================KEY MAPPING========================
 "
 set clipboard=unnamedplus
