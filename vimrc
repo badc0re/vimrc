@@ -20,13 +20,14 @@ Plugin 'sjl/badwolf'
 Plugin 'kien/ctrlp.vim' 
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'elzr/vim-json'
-"Plugin 'Yggdroot/indentLine'
 "
 call vundle#end()            
 filetype plugin indent on    
+
 "Leader key
 "
 let mapleader= "4"
+
 " NERDTree
 "
 let g:nerdtree_tabs_open_on_gui_startup=1
@@ -44,7 +45,6 @@ let g:syntastic_enable_signs=1
 
 "YouCompleteMe
 " 
-
 let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_auto_trigger = 1
 let g:ycm_key_list_select_completion = ['<Tab>', '<Down>']
@@ -61,8 +61,6 @@ let g:EasyMotion_smartcase = 1
 
 "  ===================COLOR THEME========================
 "
-"badwolf theme
-"
 colorscheme badwolf
 
 "Indentation color
@@ -75,7 +73,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black   ctermbg=236
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgray ctermbg=234
 
 " ===================VIM SETTINGS======================= 
-
+"
 set tags=$VIRTUAL_ENV/tags,~/tags;/
 autocmd BufEnter * :set hlsearch 	"autostart highlight search
 set expandtab           		" enter spaces when tab is pressed
@@ -88,6 +86,7 @@ set ruler               		" show line and column number
 set number
 set t_Co=256
 map <leader>g <C-]> " goto definition
+
 " ===================KEY MAPPING========================
 "
 set clipboard=unnamedplus
@@ -106,9 +105,13 @@ map <leader>h :wincmd h<CR>
 map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR>
+" save and quit
 noremap <silent> <Leader>w :w<CR>
 noremap <silent> <Leader>q :q<CR>
+" remove hightlights
 nnoremap <Leader><F3> :set hlsearch!<CR>
+nnoremap <C-Left> :tabprevious<CR>
+
 " ==================FUNCTIONS============================
 "
 " Add the virtualenv's site-packages to vim path
@@ -123,7 +126,8 @@ if 'VIRTUAL_ENV' in os.environ:
     execfile(activate_this, dict(__file__=activate_this))
 EOF
 
-"Tried stuff
+" ==================TRIED STUFF==========================
+"
 "Plugin 'davidhalter/jedi-vim'
 "Plugin 'fholgado/minibufexpl.vim'
 "Plugin 'jistr/vim-nerdtree-tabs'
@@ -135,3 +139,9 @@ EOF
 "Plugin 'morhetz/gruvbox' 
 "Plugin 'ggreer/the_silver_searcher'
 "Plugin 'rking/ag.vim'
+"
+
+"Things to try:
+"
+"https://github.com/vim-scripts/dbext.vim
+"https://github.com/klen/python-mode
