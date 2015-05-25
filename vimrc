@@ -8,15 +8,7 @@ call vundle#begin()
 "
 Plugin 'gmarik/Vundle.vim'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic' 
-Plugin 'SirVer/ultisnips'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'jmcantrell/vim-virtualenv'
-Plugin 'bling/vim-airline'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'sjl/badwolf'
+Plugin 'scrooloose/nerdtree' Plugin 'scrooloose/syntastic' Plugin 'SirVer/ultisnips' Plugin 'hynek/vim-python-pep8-indent' Plugin 'jmcantrell/vim-virtualenv' Plugin 'bling/vim-airline' Plugin 'Valloric/YouCompleteMe' Plugin 'nathanaelkane/vim-indent-guides' Plugin 'sjl/badwolf'
 Plugin 'kien/ctrlp.vim' 
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'elzr/vim-json'
@@ -111,6 +103,13 @@ noremap <silent> <Leader>q :q<CR>
 " remove hightlights
 nnoremap <Leader><F3> :set hlsearch!<CR>
 nnoremap <C-Left> :tabprevious<CR>
+" clipboard
+set clipboard=unnamedplus
+set nocompatible
+set backspace=2
+" comment
+vnoremap # :s#^#\##<cr>
+vnoremap -# :s#^\###<cr>
 
 " ==================FUNCTIONS============================
 "
