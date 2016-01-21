@@ -8,10 +8,19 @@ call vundle#begin()
 "
 Plugin 'gmarik/Vundle.vim'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'scrooloose/nerdtree' Plugin 'scrooloose/syntastic' Plugin 'SirVer/ultisnips' Plugin 'hynek/vim-python-pep8-indent' Plugin 'jmcantrell/vim-virtualenv' Plugin 'bling/vim-airline' Plugin 'Valloric/YouCompleteMe' Plugin 'nathanaelkane/vim-indent-guides' Plugin 'sjl/badwolf'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'SirVer/ultisnips'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'bling/vim-airline'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'sjl/badwolf'
 Plugin 'kien/ctrlp.vim' 
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'elzr/vim-json'
+Plugin 'fatih/vim-go'
 "
 call vundle#end()            
 filetype plugin indent on    
@@ -34,6 +43,7 @@ let g:syntastic_python_checkers = ['flake8', 'pylint', 'pep8']
 let g:syntastic_aggregate_errors = 1
 "let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
+
 
 "YouCompleteMe
 " 
@@ -110,6 +120,13 @@ set backspace=2
 " comment
 vnoremap # :s#^#\##<cr>
 vnoremap -# :s#^\###<cr>
+
+" ===================KEY GO-LANG========================
+"
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
 
 " ==================FUNCTIONS============================
 "
