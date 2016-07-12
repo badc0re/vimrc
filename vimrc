@@ -15,6 +15,7 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'bling/vim-airline'
 Plugin 'Valloric/YouCompleteMe'
+"Plugin 'davidhalter/jedi-vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'sjl/badwolf'
 Plugin 'kien/ctrlp.vim' 
@@ -29,6 +30,10 @@ filetype plugin indent on
 "
 let mapleader= "4"
 
+"Remove trailing whitespace
+"
+autocmd BufWritePre *.py :%s/\s\+$//e
+
 " NERDTree
 "
 let g:nerdtree_tabs_open_on_gui_startup=1
@@ -39,18 +44,40 @@ let NERDTreeIgnore = ['\.pyc$', '\.orig$']
 
 " Syntastic
 "
-let g:syntastic_python_checkers = ['flake8', 'pylint', 'pep8']
-let g:syntastic_aggregate_errors = 1
-"let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=1
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
+let g:syntastic_python_checkers = ['flake8', 'pylint', 'pep8', 'python']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
+let g:syntastic_shell = "/bin/zsh"
 
 "YouCompleteMe
 " 
+let g:ycm_server_python_interpreter = '/usr/bin/python'
 let g:ycm_key_invoke_completion = '<C-Space>'
+let g:ycm_python_binary_path = 'python'
 let g:ycm_auto_trigger = 1
 let g:ycm_key_list_select_completion = ['<Tab>', '<Down>']
-"nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_server_use_vim_stdout = 1
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+"Jedi-complete
+"let g:jedi#show_call_signatures = "1"
+"let g:jedi#popup_select_first = 0
+"let g:jedi#use_splits_not_buffers = "left"
+"let g:jedi#use_tabs_not_buffers = 1
+"let g:jedi#goto_command = "<leader>d"
+"let g:jedi#goto_assignments_command = "<leader>g"
+"let g:jedi#goto_definitions_command = ""
+"let g:jedi#documentation_command = "K"
+"let g:jedi#usages_command = "<leader>n"
+"let g:jedi#completions_command = "<C-Space>"
+"let g:jedi#rename_command = "<leader>r"
 
 "Indentation
 "
@@ -63,11 +90,13 @@ let g:EasyMotion_smartcase = 1
 
 "  ===================COLOR THEME========================
 "
-colorscheme badwolf
 
 "Indentation color
 "
+colorscheme badwolf
 set ts=2 sw=2 et
+filetype plugin on
+syntax on
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
@@ -87,6 +116,7 @@ set autoindent          		" copy indent from current line when starting a new li
 set ruler               		" show line and column number
 set number
 set t_Co=256
+set term=screen-256color
 map <leader>g <C-]> " goto definition
 
 " ===================KEY MAPPING========================

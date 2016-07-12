@@ -4,8 +4,8 @@ VIRTUAL_ENV_SRC=""
 for i in $( cat $VIRTUAL_ENV/lib/python2.7/site-packages/_virtualenv_path_extensions.pth | grep /home/ ); do
 	VIRTUAL_ENV_SRC="$VIRTUAL_ENV_SRC $i"
 done
-VIRTUAL_ENV_SRC="$VIRTUAL_ENV_SRC $VIRTUAL_ENV/lib/python2.7/site-packages/"
+VIRTUAL_ENV_SRC="$VIRTUAL_ENV_SRC/$VIRTUAL_ENV/lib/python2.7/site-packages/"
 echo Processing ctags for following pathes
-echo $VIRTUAL_ENV_SRC
+echo "Path:" $VIRTUAL_ENV_SRC
 ctags -f $VIRTUAL_ENV/tags -R $VIRTUAL_ENV_SRC &> /dev/null & disown
 echo Finished processing ctags
