@@ -17,11 +17,13 @@ Plugin 'bling/vim-airline'
 Plugin 'Valloric/YouCompleteMe'
 "Plugin 'davidhalter/jedi-vim'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'sjl/badwolf'
+"Plugin 'sjl/badwolf'
 Plugin 'kien/ctrlp.vim' 
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'elzr/vim-json'
 Plugin 'fatih/vim-go'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'mileszs/ack.vim'
 "
 call vundle#end()            
 filetype plugin indent on    
@@ -93,7 +95,7 @@ let g:EasyMotion_smartcase = 1
 
 "Indentation color
 "
-colorscheme badwolf
+colorscheme ron
 set ts=2 sw=2 et
 filetype plugin on
 syntax on
@@ -117,7 +119,7 @@ set ruler               		" show line and column number
 set number
 set t_Co=256
 set term=screen-256color
-map <leader>g <C-]> " goto definition
+"map <leader>g <C-]> " goto definition
 
 " ===================KEY MAPPING========================
 "

@@ -105,8 +105,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-source /usr/local/bin/virtualenvwrapper.sh
-
 if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
     export TERM=xterm-256color
 fi
+
+export PATH=$PATH:/home/tobii.intra/djoi/bin
+
+source '/home/tobii.intra/djoi/lib/azure-cli/az.completion'
