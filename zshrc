@@ -2,11 +2,12 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/tobii.intra/djoi/.oh-my-zsh
+export ZSH=/home/...../djoi/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# ZSH_THEME="bullet-train"
 ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -88,6 +89,20 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# kill me if not the same
+#BULLETTRAIN_PROMPT_ORDER=(
+#  time
+#  context
+#  dir
+#  git
+#)
+
+export PATH=/home/..../djoi/development/android_sdk/sdk/platform-tools:/home/...../djoi/development/android_sdk/sdk/tools/bin:$PATH
+export ANDROID_HOME=/home/..../djoi/development/android_sdk/sdk
+export ANDROID_NDK_HOME=/home/...../djoi/development/android_sdk/ndk
+#export ANDROID_NDK_HOME=/home/..../djoi/development/android_sdk/ndk_16/android-ndk-r16b
+
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 HISTFILE="$HOME/.zsh_history"
@@ -106,3 +121,5 @@ setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history 
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -18,12 +18,14 @@ Plugin 'Valloric/YouCompleteMe'
 "Plugin 'davidhalter/jedi-vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 "Plugin 'sjl/badwolf'
-Plugin 'kien/ctrlp.vim' 
+Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'elzr/vim-json'
 Plugin 'fatih/vim-go'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'mileszs/ack.vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'chiedo/vim-case-convert'
 "
 call vundle#end()            
 filetype plugin indent on    
@@ -118,7 +120,7 @@ set autoindent          		" copy indent from current line when starting a new li
 set ruler               		" show line and column number
 set number
 set t_Co=256
-set term=screen-256color
+"set term=screen-256color
 "map <leader>g <C-]> " goto definition
 
 " ===================KEY MAPPING========================
@@ -152,7 +154,8 @@ set backspace=2
 " comment
 vnoremap # :s#^#\##<cr>
 vnoremap -# :s#^\###<cr>
-
+"nasm
+au BufRead,BufNewFile *.asm set filetype=nasm
 " ===================KEY GO-LANG========================
 "
 au FileType go nmap <leader>r <Plug>(go-run)
@@ -173,6 +176,19 @@ if 'VIRTUAL_ENV' in os.environ:
     activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
     execfile(activate_this, dict(__file__=activate_this))
 EOF
+
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+autocmd BufWritePre     *.cpp :call TrimWhiteSpace()
+autocmd BufWritePre     *.hpp :call TrimWhiteSpace()
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
 " ==================TRIED STUFF==========================
 "

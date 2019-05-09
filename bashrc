@@ -112,3 +112,5 @@ fi
 export PATH=$PATH:/home/tobii.intra/djoi/bin
 
 source '/home/tobii.intra/djoi/lib/azure-cli/az.completion'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
